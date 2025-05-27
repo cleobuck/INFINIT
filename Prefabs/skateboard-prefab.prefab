@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: -477512519613447425}
   - component: {fileID: 8477124134878514949}
   - component: {fileID: 7645444162772958620}
+  - component: {fileID: 4453979458292142931}
   m_Layer: 0
   m_Name: skateboard-prefab
   m_TagString: Player
@@ -29,8 +30,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -91.28326, y: 5.00538, z: -0.88529}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.43, y: 1.43, z: 1.43}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5786897924791114091}
   m_Father: {fileID: 0}
@@ -48,16 +49,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UseDefaultMecanim: 1
-  ShouldResetPosition: 1
+  ShouldResetPosition: 0
   ResetPositionSpeed: 0.5
   GroundDistanceTolerance: 0.05
   InitialInvincibilityDuration: 3
   MovementAxis: 0
-  MoveSpeed: 50
-  MovementInertia: 0
+  MoveSpeed: 90
+  MovementInertia: 0.4
   ConstrainMovementToDeathBounds: 1
   AlbatrossBody: {fileID: 5531922759328121912}
-  MaximumAlbatrossRotation: 45
+  MaximumAlbatrossRotation: 5
 --- !u!54 &8477124134878514949
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -106,6 +107,28 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &4453979458292142931
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5531922759328121912}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: e218d3b17b92973bd93ce6086b7dd5de, type: 3}
+  m_Controller: {fileID: 9100000, guid: 0a7402036ea572f679934f4ca2fbdfa9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &6324611326058692224
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -27,6 +27,24 @@ namespace MoreMountains.InfiniteRunnerEngine
 			base.Start();
 			_originalPosition = transform.position;
 			_randomVariation = UnityEngine.Random.Range(0f,100f);
+			
+			// Debug animation state
+			Animator animator = GetComponent<Animator>();
+			if (animator != null)
+			{
+				Debug.Log("Animator found, is playing: " + animator.isActiveAndEnabled);
+				Debug.Log("Current animation state: " + animator.GetCurrentAnimatorStateInfo(0).shortNameHash);
+				Debug.Log("Animation speed: " + animator.speed);
+				Debug.Log("Animation layer count: " + animator.layerCount);
+				
+				// Force play the animation
+				animator.Play("Idle", 0, 0f);
+				animator.speed = 1f;
+			}
+			else
+			{
+				Debug.LogWarning("No Animator component found!");
+			}
 		}
 
 		/// <summary>
@@ -36,6 +54,14 @@ namespace MoreMountains.InfiniteRunnerEngine
 		{
 			base.Update();
 			HandleAlbatrossMovement();
+
+			// Debug animation state every frame
+			Animator animator = GetComponent<Animator>();
+			if (animator != null && animator.isActiveAndEnabled)
+			{
+				AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+				Debug.Log("Animation playing: " + stateInfo.IsName("Idle") + ", normalized time: " + stateInfo.normalizedTime);
+			}
 		}
 
 		/// <summary>
@@ -53,6 +79,21 @@ namespace MoreMountains.InfiniteRunnerEngine
 			{
 				AlbatrossBody.transform.localEulerAngles = -_currentMovement * MaximumAlbatrossRotation * Vector3.forward;
 			}
+		}
+
+		public override void LeftEnd()
+		{
+			// Don't reset movement to prevent drifting back to center
+		}
+
+		public override void RightEnd()
+		{
+			// Don't reset movement to prevent drifting back to center
+		}
+
+		protected override void UpdateAllMecanimAnimators()
+		{
+			// Do nothing - let the animation play continuously
 		}
 	}
 }
