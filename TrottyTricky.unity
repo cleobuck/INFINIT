@@ -1211,8 +1211,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6733ca52c3fdb5843abc7ba0ed3608c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MinimumSize: {x: 8, y: 8, z: 8}
-  MaximumSize: {x: 12, y: 12, z: 12}
+  MinimumSize: {x: 0.5, y: 0.5, z: 0.5}
+  MaximumSize: {x: 2, y: 2, z: 2}
   PreserveRatio: 1
   MinimumRotation: {x: 0, y: 0, z: 0}
   MaximumRotation: {x: 0, y: 0, z: 0}
